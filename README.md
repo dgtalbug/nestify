@@ -1,39 +1,73 @@
-# Backend Assignment
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+</p>
 
-### Problem Statement:
-You need to build a website backend (Rest API) where a `creator` and `listener` manage their `Podcasts`. A Creator can create `album`, `generes`, `tags` and they can upload `songs` and `podcasts` to the system. Songs & podcasts can be present in multiple `albums` and `generes`. A Listener can then search for podcasts and/or songs using `song name`, `album` and `generes` and also can filter using `album`, `generes` and `tags`.
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-#### User Stories
-1. As a singer, I can upload a podcast.
-2. As a singer, I can create, edit, delete album.
-3. As a singer, I can create, edit, delete generes.
-4. As a singer, I can create, edit, delete tags.
-5. As a singer, I can upload a song.
-6. As a singer, I can add new tag while uploading song.
-7. As a listener, I can see list of podcasts.
-8. As a listener, I can search podcast by name.
-9. As a listener, I can filter podcast & songs by album, generes, tags.
-10. As a listener, when I am playing a song, I can get suggested song list using current data.
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-Build the application keeping in mind that data duplicacy and time complexity should be minimized.
+## Description
 
-### Submissions Required
-- Technical Documentation walking through the solution & process
-- ER diagram of the database
-- Complete Source Code with instructions to run the app
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-### Instructions for submitting the assignment
--   Create a  **private**  fork of the repository
--   Make the changes & commit/push the code to your fork
--   Write steps to run this application inside README.md
--   Provide access to  `mindship-tech`  github account
--   Let your contact at Mindship know that you have provided the access
--   That's it, our team will take care of the rest :)
+## Installation
 
-### Important Notes:
--   Use any of the following technologies to build the backend: `Golang`, `Node`, `Python` or `Ruby`.
--   We are really, really interested in your object oriented development skills, so please solve the problem keeping this in mind. Also handle the edge cases (if any).
--   Your codebase should have the same level of structure and organised as any mature open source project including coding conventions, directory structure, a README.md with clear instructions and additionally a runner shell script that automates the entire build and execute process.
--   You need to use Git for version control. We expect you to send us a standard zip or tarball of your source code when you're done that includes git metadata (the .git folder) in the tarball so that we can look at your commit logs and understand how your solution has evolved. Frequent commits are a huge plus.
--   Do not check in vendor libraries or output from the build process. Use a standard build automation & dependency system like go modules/npm.
--   Do not make your solution or this problem publicly available by, for example, using GitHub or Bitbucket or by posting this problem to a blog or forum.
+```bash
+$ npm install
+```
+
+## Running the app
+
+```bash
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
+```
+
+## Test
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
+```
+
+## Support
+
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+
+## Stay in touch
+
+- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
+
+## License
+
+Nest is [MIT licensed](LICENSE).
