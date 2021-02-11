@@ -10,12 +10,15 @@ import {
   ExpressAdapter,
   NestExpressApplication,
 } from '@nestjs/platform-express';
+import { initializeTransactionalContext, patchTypeORMRepositoryWithBaseRepository } from 'typeorm-transactional-cls-hooked';
 
 async function bootstrap() {
+  initializeTransactionalContext();
+  patchTypeORMRepositoryWithBaseRepository();
   const app = await NestFactory.create<NestExpressApplication>(
     AppModule,
     new ExpressAdapter(),
-    { cors: true, logger: false },
+    { cors: true },
   );
   const configService = app.select(CommonModule).get(ConfigService);
   const logger = app.select(CommonModule).get(LogService);
@@ -40,7 +43,7 @@ async function bootstrap() {
     new ValidationPipe({
       whitelist: true,
       transform: true,
-      dismissDefaultMessages: true,
+      dismissDefaultMessages: false,
       validationError: {
         target: false,
       },

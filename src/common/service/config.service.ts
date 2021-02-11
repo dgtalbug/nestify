@@ -63,6 +63,7 @@ export class ConfigService {
       migrationsRun: true,
       logging: this.nodeEnv === 'development',
       namingStrategy: new DbNamingStrategy(),
+      synchronize: true
     };
   }
 }
