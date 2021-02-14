@@ -1,8 +1,8 @@
 import { RoleType } from 'src/common/constants';
 import { AbstractEntity } from 'src/common/entities';
-import { UserDto } from 'src/modules/user/dto';
-import { PasswordTransformer } from 'src/modules/user/transformers';
 import { Column, Entity } from 'typeorm';
+import { UserDto } from '../dto';
+import { PasswordTransformer } from '../transformers';
 
 @Entity({ name: 'users' })
 export class UserEntity extends AbstractEntity<UserDto> {

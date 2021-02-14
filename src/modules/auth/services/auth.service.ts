@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UserNotFoundException } from 'src/exceptions/user-not-found.exception';
 import { UserEntity } from 'src/modules/user/entities';
-import { UserAuthService, UserService } from 'src/modules/user/services';
+import {  UserService } from 'src/modules/user/services';
 import { ContextService, UtilsService } from 'src/providers';
 import { TokenPayloadDto, UserLoginDto } from '../dto';
 import { UserPasswordNotValidException } from '../../../exceptions/user-password-not-valid.exception';

@@ -1,20 +1,21 @@
-import { Body, Controller, HttpCode, HttpStatus, Patch, Post, UseGuards, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Patch, Post, UseGuards, UseInterceptors } from '@nestjs/common';
 import { ApiBearerAuth, ApiNoContentResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { UserDto } from '../../user/dto';
 import { UserService } from '../../user/services/user.service';
 import { AuthService } from '../services/auth.service';
 import { LoginPayloadDto, UserLoginDto, UserRegisterDto } from '../dto';
 import { RoleType } from 'src/common/constants';
-import { Roles } from 'src/decorators';
+import { AuthUser, Roles } from 'src/decorators';
 import { AuthUserInterceptor } from 'src/interceptors/auth-user.interceptor';
 import { AuthGuard, RolesGuard } from 'src/guards';
+import { UserEntity } from 'src/modules/user/entities';
 
 @Controller('auth')
-@ApiTags('authentication')
+@ApiTags('Authentication')
 export class AuthController {
   constructor(
-        public readonly _userService: UserService,
-        public readonly _authService: AuthService,
+        public readonly userService: UserService,
+        public readonly authService: AuthService,
   ) {}
 
   @Post('register')
@@ -23,7 +24,7 @@ export class AuthController {
   async register(
       @Body() userRegisterDto: UserRegisterDto,
   ): Promise<UserDto> {
-      const user = await this._userService.createUser(
+      const user = await this.userService.createUser(
           userRegisterDto,
       );
 
@@ -40,8 +41,8 @@ export class AuthController {
   async userLogin(
     @Body() userLoginDto: UserLoginDto,
   ): Promise<LoginPayloadDto> {
-    const user = await this._authService.validateUser(userLoginDto);
-    const token = await this._authService.createToken(user);
+    const user = await this.authService.validateUser(userLoginDto);
+    const token = await this.authService.createToken(user);
 
     return new LoginPayloadDto(user.toDto(), token);
   }
@@ -56,4 +57,14 @@ export class AuthController {
   @ApiBearerAuth()
   @Roles(RoleType.SINGER, RoleType.LISTENER, RoleType.ROOT)
   async userLogout(): Promise<void> {}
+
+  @Get('me')
+  @HttpCode(HttpStatus.OK)
+  @UseGuards(AuthGuard)
+  @UseInterceptors(AuthUserInterceptor)
+  @ApiBearerAuth()
+  @ApiOkResponse({ type: UserDto, description: 'current user info' })
+  getCurrentUser(@AuthUser() user: UserEntity) {
+      return user.toDto();
+  }
 }

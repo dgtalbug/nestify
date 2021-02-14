@@ -5,6 +5,8 @@ import { ConfigService } from './common/service';
 import { contextMiddleware } from './middlewares';
 import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { GenreModule } from './modules/genre/genre.module';
+import { TagModule } from './modules/tag/tag.module';
 
 @Module({
   imports: [
@@ -16,6 +18,8 @@ import { AuthModule } from './modules/auth/auth.module';
     }),
     AuthModule,
     UserModule,
+    GenreModule,
+    TagModule,
   ],
   controllers: [],
   providers: [],
