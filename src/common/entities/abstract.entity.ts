@@ -1,7 +1,7 @@
 'use strict';
 
 import { AbstractDto } from 'src/common/dto';
-import { UtilsService } from 'src/providers';
+import { UtilsService } from 'src/providers/utils.provider';
 import {
     CreateDateColumn,
     PrimaryGeneratedColumn,

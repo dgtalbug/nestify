@@ -7,6 +7,9 @@ import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { GenreModule } from './modules/genre/genre.module';
 import { TagModule } from './modules/tag/tag.module';
+import { PodcastModule } from './modules/podcast/podcast.module';
+import { AlbumModule } from './modules/album/album.module';
+import { SongModule } from './modules/song/song.module';
 
 @Module({
   imports: [
@@ -20,6 +23,9 @@ import { TagModule } from './modules/tag/tag.module';
     UserModule,
     GenreModule,
     TagModule,
+    PodcastModule,
+    AlbumModule,
+    SongModule,
   ],
   controllers: [],
   providers: [],
